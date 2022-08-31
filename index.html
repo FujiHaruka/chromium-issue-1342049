@@ -1,74 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>issue 1342049</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>issue 1342049</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
 
-    #point {
-      width: 12px;
-      height: 12px;
-      background-color: #555;
-      border-radius: 50%;
-      position: fixed;
-    }
+      #point {
+        width: 12px;
+        height: 12px;
+        background-color: #000;
+        border-radius: 50%;
+        position: fixed;
+      }
 
-    .center {
-      text-align: center;
-    }
-
-    .button {
-      padding: 8px;
-      border: 1px solid #555;
-    }
-
-    section {
-      padding-top: 1em;
-    }
-  </style>
-  <script>
-    const POINT_SIZE = 12
-    window.onload = () => {
-      const point = document.getElementById("point")
-      document.body.addEventListener("click", (ev) => {
-        console.log(ev)
-        const { pageX, pageY } = ev
-        point.style.top = `${pageY - POINT_SIZE / 2}px`
-        point.style.left = `${pageX - POINT_SIZE / 2}px`
-      })
-
-      document.querySelector(".button").addEventListener("click", () => {
-        console.log("clicked")
-      })
-    }
-  </script>
-</head>
-<body>
-  <div id="point"></div>
-  <section class="center">
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p><span role="button" class="button">button</span></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-    <p><a href="#foo">foo</a></p>
-    <p>Lorem ipsum dolor sit amet</p>
-  </section>
-</body>
+      .link-block {
+        display: block;
+        padding: 12px 8px;
+        border: 1px solid #666;
+        text-align: left;
+        font-size: 16px;
+        text-decoration: none;
+        color: #0b8043;
+      }
+      .link-block:hover {
+        color: white;
+        background-color: #0b8043;
+      }
+    </style>
+    <script>
+      const POINT_SIZE = 12;
+      window.onload = () => {
+        const point = document.getElementById("point");
+        document.body.addEventListener("click", (ev) => {
+          const { pageX, pageY } = ev;
+          point.style.top = `${pageY - POINT_SIZE / 2}px`;
+          point.style.left = `${pageX - POINT_SIZE / 2}px`;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="point"></div>
+    <section>
+      <a href="#foo-foo-foo-foo-foo" class="link-block">#foo-foo-foo-foo-foo</a>
+      <a href="#foo" class="link-block">#foo</a>
+      <a href="#foo-foo-foo-foo-foo" class="link-block">#foo-foo-foo-foo-foo</a>
+    </section>
+  </body>
 </html>
